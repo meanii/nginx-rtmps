@@ -14,6 +14,14 @@ else
 	sed -i 's|#youtube| |g' $NGINX_TEMPLATE
 fi
 
+if [ -n "${TELEGRAM_KEY}" ]; then
+	echo "Telegram activate."
+	sed -i 's|#telegram|push '"$TELEGRAM_URL"'${TELEGRAM_KEY};|g' $NGINX_TEMPLATE
+	ENV_OK=1
+else 
+	sed -i 's|#telegram| |g' $NGINX_TEMPLATE
+fi
+
 if [ -n "${FACEBOOK_KEY}" ]; then
 	echo "Facebook activate."
 	sed -i 's|#facebook|push '"$FACEBOOK_URL"'${FACEBOOK_KEY};|g' $NGINX_TEMPLATE

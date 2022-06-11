@@ -1,6 +1,6 @@
 FROM buildpack-deps:stretch
 
-LABEL maintainer="Thiago Lima <contact@thiagoemmanuel.com>"
+LABEL maintainer="Anil Chauhan <https://github.com/meanii>"
 
 # Versions of Nginx and nginx-rtmp-module to use
 ENV NGINX_VERSION nginx-1.18.0
@@ -65,9 +65,16 @@ COPY stunnel/fb.conf /etc/stunnel/conf.d/fb.conf
 #Instagram Stunnel Port 19351
 COPY stunnel/instagram.conf /etc/stunnel/conf.d/instagram.conf
 
+#Telegram Stunnel Port 19352
+COPY stunnel/telegram.conf /etc/stunnel/conf.d/telegram.conf
+
 #Youtube
 ENV YOUTUBE_URL rtmp://a.rtmp.youtube.com/live2/
 ENV YOUTUBE_KEY ""
+
+#Telegram
+ENV TELEGRAM_URL rtmp://127.0.0.1:19352/s/
+ENV TELEGRAM_KEY ""
 
 #Facebook
 ENV FACEBOOK_URL rtmp://127.0.0.1:19350/rtmp/

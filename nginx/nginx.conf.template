@@ -12,6 +12,7 @@ rtmp {
             live on;
             record off;
             #facebook
+            #telegram
             #youtube
         }
         
